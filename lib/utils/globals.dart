@@ -30,4 +30,13 @@ class Globals {
     TextEditingController(),
   ];
   List<User> allUsers = [];
+  static int totalValue = 0;
+  void Sum() {
+    priceController.forEach((element) {
+      totalValue = int.parse(element.text) +
+          int.parse(quentyController[priceController.indexOf(element)].text);
+    });
+  }
+
+  void calculateTotalValue() {}
 }
