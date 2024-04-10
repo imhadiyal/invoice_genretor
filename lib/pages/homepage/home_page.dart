@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:invoice_genretor/pages/pdfPage/pdfPage.dart';
 import 'package:invoice_genretor/utils/Routes_utils.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,13 +15,6 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("HomePage"),
-      ),
-      floatingActionButton: ElevatedButton.icon(
-        onPressed: () {
-          Navigator.pushNamed(context, MyRoutes.pdfpage);
-        },
-        label: const Text("Get Pdf"),
-        icon: const Icon(Icons.picture_as_pdf_outlined),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),
@@ -51,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                     blurRadius: 5,
                   ),
                 ],
-                color: Color(0xffEE9322),
+                color: Color(0xff55B8E9),
               ),
               alignment: Alignment.center,
               child: const Text(

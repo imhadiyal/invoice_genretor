@@ -15,6 +15,13 @@ class _InvoiceGeneraterState extends State<InvoiceGenerater> {
       appBar: AppBar(
         title: const Text("invoice"),
       ),
+      floatingActionButton: ElevatedButton.icon(
+        onPressed: () {
+          Navigator.pushNamed(context, MyRoutes.pdfpage);
+        },
+        label: const Text("Get Pdf"),
+        icon: const Icon(Icons.picture_as_pdf_outlined),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(

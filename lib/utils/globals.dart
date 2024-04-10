@@ -1,22 +1,16 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
-
-class User {
-  String? name, contact, email, phone, address, billNumber;
-
-  File? image;
-
-  void reset() {
-    name = contact = email = image = phone = address = billNumber = null;
-  }
-}
+import 'package:flutter/material.dart';
 
 class Globals {
+  String? firstName, lastName, billNumber;
+
   Globals._();
+
   static final Globals globals = Globals._();
-  User user = User();
-  List<String> skill = ["", ""];
+
+  void reset() {
+    firstName = lastName = billNumber = null;
+  }
+
   static List<TextEditingController> nameController = [
     TextEditingController(),
     TextEditingController(),
@@ -29,14 +23,24 @@ class Globals {
     TextEditingController(),
     TextEditingController(),
   ];
-  List<User> allUsers = [];
   static int totalValue = 0;
   void Sum() {
-    priceController.forEach((element) {
-      totalValue = int.parse(element.text) +
-          int.parse(quentyController[priceController.indexOf(element)].text);
-    });
+    priceController.forEach(
+      (element) {
+        totalValue = int.parse(element.text) +
+            int.parse(quentyController[priceController.indexOf(element)].text);
+      },
+    );
   }
 
-  void calculateTotalValue() {}
+// totalValue  total
+  void calculateTotalValue() {
+    for (var element in priceController) {
+      totalValue += int.parse(element.text.isNotEmpty ? element.text : "0") *
+          int.parse(
+              quentyController[priceController.indexOf(element)].text.isNotEmpty
+                  ? quentyController[priceController.indexOf(element)].text
+                  : "0");
+    }
+  }
 }
